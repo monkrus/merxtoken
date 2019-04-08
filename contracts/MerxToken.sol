@@ -18,5 +18,7 @@ import "openzeppelin-solidity/contracts/token/ERC20/ERC20Detailed.sol";
      */
     constructor () public ERC20Detailed("MerxToken", "MERX", DECIMALS) {
         _mint(msg.sender, INITIAL_SUPPLY);
+
+        
     }
 }
