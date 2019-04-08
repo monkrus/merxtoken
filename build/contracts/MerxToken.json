@@ -1321,9 +1321,16 @@
     "name": "solc",
     "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "1554682768448": {
+      "events": {},
+      "links": {},
+      "address": "0x48Ff03BB35f096cd3ab60b97D5F94576dF563ba5",
+      "transactionHash": "0x5f9448c8b0dd8c484ae215fe95a704f2ea0c822dd9e45f333b312124afdf1533"
+    }
+  },
   "schemaVersion": "3.0.5",
-  "updatedAt": "2019-04-08T00:07:52.697Z",
+  "updatedAt": "2019-04-08T00:59:59.477Z",
   "devdoc": {
     "details": "Very simple ERC20 Token example, where all tokens are pre-assigned to the creator.\r Note they can later distribute these tokens as they wish using `transfer` and other\r `ERC20` functions.\r",
     "methods": {

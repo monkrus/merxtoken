@@ -13,12 +13,9 @@ Check if Node.js and truffle are installed by typing
 
 2. Create package.json  `npm init`
 
-3. Create .env file containing test private keys for testing purposes.
-Keys can be exported from MetaMask.
+3. Create .env file (for private keys and on testnet.Keys can be exported from MetaMask)
 
 4. Set up Truffle environment in `truffle-config.js`
-
-5. Run `npm install --save-dev dotenv truffle-wallet-provider ethereumjs-wallet`
 
 5. Import OpenZeppelin library `npm install openzeppelin-solidity`
 
@@ -27,7 +24,15 @@ Keys can be exported from MetaMask.
 "solidity.packageDefaultDependenciesContractsDirectory": "",
 "solidity.packageDefaultDependenciesDirectory": "src/node_modules" 
 ```
-6. Run `truffle compile`
+6. Run `truffle compile` to compile the token code
+
+7. Set up the migration script in `2-deploy_migration.js` to deploy the contract
+
+7. Start the ganache blockchain by running`ganache-cli` in your terminal
+
+8. Deploy MerxToken by  running `truffle migrate --network ganache `
+
+
 
 
 
