@@ -15,7 +15,7 @@ import "../../math/SafeMath.sol";
  * all accounts just by listening to said events. Note that this isn't required by the specification, and other
  * compliant implementations may not do it.
  */
-contract ERC20 is IERC20 {
+contract MerxToken1 is IERC20 {
     using SafeMath for uint256;
 
     mapping (address => uint256) private _balances;
