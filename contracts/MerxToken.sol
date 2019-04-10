@@ -3,8 +3,10 @@ pragma solidity ^0.5.0;
 //import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
 //import "openzeppelin-solidity/contracts/token/ERC20/ERC20Detailed.sol";
 //import 'openzeppelin-solidity/contracts/math/SafeMath.sol';
+import  'openzeppelin-solidity/token/ERC20/ERC20Burnable.sol';
 
-contract MerxToken {
+
+contract MerxToken is ERC20Burnable {
     string  public name = "MerxNet";
     string  public symbol = "MERX";
     string  public standard = "v1.0";
@@ -14,6 +16,18 @@ contract MerxToken {
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
 
+    event Burn(address indexed burner, uint256 value);
+    function burn(uint256 _value) public {
+    _burn(msg.sender, _value);
+    }
+    function _burn(address _who, uint256 _value) internal {
+    require(_value <= balances[_who]);
+    balances[_who] = balances[_who].sub(_value);
+    totalSupply_ = totalSupply_.sub(_value);
+    emit Burn(_who, _value);
+    emit Transfer(_who, address(0), _value);
+  
+}
     event Transfer(
         address indexed _from,
         address indexed _to,
