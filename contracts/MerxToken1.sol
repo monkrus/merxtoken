@@ -16,6 +16,13 @@ import "../../math/SafeMath.sol";
  * compliant implementations may not do it.
  */
 contract MerxToken1 is IERC20 {
+    string  public name = "MerxToken";
+    string  public symbol = "MERX";
+    string  public standard = "v1.1";
+    uint256 public totalSupply;
+
+     );
+
     using SafeMath for uint256;
 
     mapping (address => uint256) private _balances;
