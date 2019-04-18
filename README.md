@@ -11,29 +11,42 @@ Check if Node.js and truffle are installed by typing
 
 1. Initialize truffle (development environment) `truffle init`
 
-2. Create package.json  `npm init`
+2. Set up Truffle environment in `truffle-config.js`
 
-3. Create .env file (for private keys and on testnet.Keys can be exported from MetaMask)
+3. Set up the migration script in `2-deploy_migration.js` to deploy the contract
 
-4. Set up Truffle environment in `truffle-config.js`
+4. Deploy MerxToken by  running `truffle migrate`
 
-5. Import OpenZeppelin library `npm install openzeppelin-solidity`
+5. Run `truffle compile` to compile the token code
 
-:exclamation:  To avoid imports highlighted red in VSC, add to your user settings:
-``` 
-"solidity.packageDefaultDependenciesContractsDirectory": "",
-"solidity.packageDefaultDependenciesDirectory": "src/node_modules" 
-```
-6. Run `truffle compile` to compile the token code
+5. Run  Test 1 (`truffle test`, see Tests)
 
-7. Set up the migration script in `2-deploy_migration.js` to deploy the contract
+6. Create MerxToken.js and run Test 2 (`truffle test`, see Tests)
 
-7. Start the ganache blockchain by running`ganache-cli` in your terminal
 
-8. Deploy MerxToken by  running `truffle migrate --network ganache `
+
+
+
+
+
+
+
+
 
 
 
 
 
 ## Tests ##
+
+1. Test 1.
+`truffle console`
+`MerxToken.deployed().then(function(i) {token=i;})`
+`token.address`
+//result
+'0x113317147297363C39928CAbD1dFDc986ce9030c'
+
+
+2. Test 2.
+Please see `MerxToken.js`
+

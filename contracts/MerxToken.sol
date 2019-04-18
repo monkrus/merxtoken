@@ -1,15 +1,13 @@
 pragma solidity ^0.5.0;
 
-
-contract MerxToken  {
-    string  public name = "MerxNet";
+contract MerxToken {
+	string  public name = "MerxToken";
     string  public symbol = "MERX";
-    string  public standard = "v1.0";
-    uint8   public decimals = 18; // same value as wei
-    uint256 public totalSupply;
+    string  public standard = "MerxToken v1.0";
+	// sets totalSupply of tokens
+	uint256 public totalSupply;
 
-
-    event Transfer(
+	 event Transfer(
         address indexed _from,
         address indexed _to,
         uint256 _value
@@ -21,29 +19,33 @@ contract MerxToken  {
         uint256 _value
     );
 
-    mapping(address => uint256) public balanceOf;
-    mapping(address => mapping(address => uint256)) public allowance;
 
-    function MerxToken (uint256 _initialSupply) public {
-        balanceOf[msg.sender] = _initialSupply;
-        totalSupply = _initialSupply;
-    }
+    //  sets key/value pair for token balance
+	mapping(address => uint256) public balanceOf;
+	mapping(address => mapping(address => uint256)) public allowance;
 
-    function transfer(address _to, uint256 _value) public returns (bool success) {
+    // sets initial balance _initialSupply
+
+	constructor (uint256 _initialSupply) public {
+    balanceOf[msg.sender] = _initialSupply;
+    totalSupply = _initialSupply;
+}
+    // allows to transfer funds, makes sure msg.sender has funds
+     function transfer(address _to, uint256 _value) public returns (bool success) {
         require(balanceOf[msg.sender] >= _value);
 
         balanceOf[msg.sender] -= _value;
         balanceOf[_to] += _value;
 
-        Transfer(msg.sender, _to, _value);
+        emit Transfer(msg.sender, _to, _value);
 
         return true;
     }
-
+   // chooses who is approving the account to spend tokens, sets the allowance
     function approve(address _spender, uint256 _value) public returns (bool success) {
         allowance[msg.sender][_spender] = _value;
 
-        Approval(msg.sender, _spender, _value);
+        emit Approval(msg.sender, _spender, _value);
 
         return true;
     }
@@ -57,7 +59,7 @@ contract MerxToken  {
 
         allowance[_from][msg.sender] -= _value;
 
-        Transfer(_from, _to, _value);
+        emit Transfer(_from, _to, _value);
 
         return true;
     }
