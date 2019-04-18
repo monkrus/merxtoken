@@ -23,6 +23,14 @@ Check if Node.js and truffle are installed by typing
 
 6. Create MerxToken.js and run Test 2 (`truffle test`, see Tests)
 
+7. Reason for`AssertionError: error message must contain revert` :
+Ganache has implemented a workaround to forward the reason of a failed `require` but other clients will fail with a regular exception.
+
+This is good for ganache because truffle is able to show the **exact cause** of an `require` failure. But the feature is not portable because other clients didn't implement a similar feature.
+
+
+
+
 
 
 
