@@ -36,7 +36,13 @@ This is good for ganache because truffle is able to show the **exact cause** of 
 
 1. Run `npm init` to creaate a `package.json` file
 
+2. Run `npm install`, add lite-server dependencies
 
+4. Run `npm run dev` (lite-server)
+
+3. Create `bs-config.json` file for lite-server
+
+4.
 
 
 
