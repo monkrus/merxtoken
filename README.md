@@ -9,6 +9,8 @@ Check if Node.js and truffle are installed by typing
 
 ## Steps ##
 
+#BACKEND#
+
 1. Initialize truffle (development environment) `truffle init`
 
 2. Set up Truffle environment in `truffle-config.js`
@@ -24,13 +26,15 @@ Check if Node.js and truffle are installed by typing
 6. Create MerxToken.js and run Test 2 (`truffle test`, see Tests)
 
 7. Reason for`AssertionError: error message must contain revert` :
-Ganache has implemented a workaround to forward the reason of a failed `require` but other clients will fail with a regular exception.
+Ganache has implemented a workaround to forward the reason of a failed 
+`require` but other clients will fail with a regular exception.
 
 This is good for ganache because truffle is able to show the **exact cause** of an `require` failure. But the feature is not portable because other clients didn't implement a similar feature.
 
 
+#FRONTEND#
 
-
+1. Run `npm init` to creaate a `package.json` file
 
 
 
@@ -56,5 +60,6 @@ This is good for ganache because truffle is able to show the **exact cause** of 
 
 
 2. Test 2.
-Please see `MerxToken.js`
+Please see `MerxToken.js` and `MerxTokenSale.js`
+Run `truffle test` to test.
 
