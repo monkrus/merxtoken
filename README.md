@@ -42,7 +42,8 @@ This is good for ganache because truffle is able to show the **exact cause** of 
 
 3. Create `bs-config.json` file for lite-server
 
-4.
+4. Creat css folder for css, js and index.html files.
+
 
 
 
