@@ -42,7 +42,14 @@ This is good for ganache because truffle is able to show the **exact cause** of 
 
 3. Create `bs-config.json` file for lite-server
 
-4. Creat css folder for css, js and index.html files.
+4. Create css folder for css, js and index.html files.
+/minified css, js, bootstrap and jquery/
+
+5. Import `web3`, `truffle-contract` libraries and create `app.js`
+Web3 allows our app to communicate with  blockchain. 
+MetaMask injects into HHTPprovider that allows our browser to talk to the blockchain.
+
+6. Setup MetaMask
 
 
 
