@@ -51,6 +51,8 @@ MetaMask injects into HHTPprovider that allows our browser to talk to the blockc
 
 6. Setup MetaMask
 
+7. 
+
 
 
 
