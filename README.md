@@ -56,26 +56,59 @@ MetaMask injects into HHTPprovider that allows our browser to talk to the blockc
 Type `geth account new`, press `enter`, create a password. Start it by typing `geth --rpc`
 To check the GETH version, type `geth version`
 
+
 8. We are using `Rinkeby` test network.To start Geth on Rinkeby, type  `geth --rinkeby --rpc --rpcapi="personal,eth,network,web3, net" --ipcpath ~/AppData/Roaming/Ethereum` (for Win10)
 In a separate window, type `geth attach http://localhost:8545`. Once you get a greeting message 
 ("Welcome to the Geth JS console!") , type `eth.syncing` to see the progress.
 
-9. 
+9. Type `geth --rinkeby account new`. Copy the address of the created account.
+Request ETH from the faucet if needed.
 
+10. Run `geth attach http://localhost:8545` again and check your accounts by typing `eth.accounts`. To specify the account, type `eth.accounts[0]` and to check balance, type `eth.getBalance(eth.accounts[0])`
 
+11. Add rinkeby configuration to `truffle-config.js`
 
+12. Run Ganache 
 
+13. Run `eth.getBalance(eth.accounts[0])` and type`personal.unlockAccount(eth.accounts[0], null, 1200)`
+//null is the password, 1200 is amount of time to unlock the account
 
+14. Type `truffle migrate --reset --compile-all --network rinkeby`
 
+15. Deploy the contract on the Rinkeby network.
+Run `geth attach http://localhost:8545`.
+In the console, type 
+`var admin=eth.accounts[0]`,
+`admin`,  
+`var tokensAvailable = 75000`,
+`tokensAvailable`.
 
+16. Describe the token to web3 - ABI file. Copy `MerxToken.js` ABI (can minify it as well, or use Prettier JSON plugin) and paste it in `var abi ="........."` 
 
+17. Tell web3 the token address.  `var tokenAddress =`......` (copy from MerxToken.json)` Don`t confuse it with tokenSaleAddress!
 
+18. `var TokenContract = web3.eth.contract(abi)` (we got web3 object)
 
+19. `var tokenInstance = TokenContract.at(tokenAddress)` (we got token instance )
 
+20. Type `tokenInstance.name()` (we should receive "MerxToken"as a result, meaning we deployed our contract succesfully)
 
+21. `tokenInstance.balanceOf(admin)` // 1000000
+    `tokenInstance.balanceOf(tokenSaleAddress)` // 750000
+and 
+`tokenInstance.transfer(tokenSaleAddress, tokensAvailable, {from:admin})`
+//asynchronous call, wait for the transaction to finish
 
+22.  Type `~/AppData/Roaming/Ethereum` (for Win10), select `keystore` to see
+json file associated with each account. Upload json file to MetaMask.
 
+23. Run `npm run dev`
 
+24. Create `deployfrontend.sh` and `docs`folder. 
+Make `deployfrontend.sh` executable and deploy it.
+All of our file appear in the docs folder.
+
+25. In your GitHub repo, go to `settings`-->`source`-->select `master branch/docs folder`
 
 ## Tests ##
 
