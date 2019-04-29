@@ -34,7 +34,7 @@ This is good for ganache because truffle is able to show the **exact cause** of 
 
 #FRONTEND#
 
-1. Run `npm init` to creaate a `package.json` file
+1. Run `npm init` to create a `package.json` file
 
 2. Run `npm install`, add lite-server dependencies
 
@@ -49,9 +49,21 @@ This is good for ganache because truffle is able to show the **exact cause** of 
 Web3 allows our app to communicate with  blockchain. 
 MetaMask injects into HHTPprovider that allows our browser to talk to the blockchain.
 
-6. Setup MetaMask
+6. Setup MetaMask.Choose import account->select type `private key` and paste private key from one of Ganache addresses. It will look like 
+`(://localhost:7545)`
 
-7. 
+7. Install GETH, full ETH node on our machine.(for Win10)
+Type `geth account new`, press `enter`, create a password. Start it by typing `geth --rpc`
+To check the GETH version, type `geth version`
+
+8. We are using `Rinkeby` test network.To start Geth on Rinkeby, type  `geth --rinkeby --rpc --rpcapi="personal,eth,network,web3, net" --ipcpath ~/AppData/Roaming/Ethereum` (for Win10)
+In a separate window, type `geth attach http://localhost:8545`. Once you get a greeting message 
+("Welcome to the Geth JS console!") , type `eth.syncing` to see the progress.
+
+9. 
+
+
+
 
 
 
